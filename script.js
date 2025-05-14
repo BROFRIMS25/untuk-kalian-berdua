@@ -55,21 +55,13 @@ function toggleLanguage() {
   });
   showSlide(current = 0);
 }
-let player;
 
-// Fungsi untuk membuat player tersembunyi
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('ytplayer', {
-    height: '0',
-    width: '0',
-    videoId: 'EUYulFdP-qE',
-    playerVars: {
-      autoplay: 0,
-      loop: 1,
-      playlist: 'EUYulFdP-qE'
-    }
-  });
-
+function nextSlide() {
+  current++;
+  console.log("Maju ke slide:", current);
+  if (current >= slides.length) current = slides.length - 1;
+  showSlide(current);
+  new Audio("click.mp3").play();
 }
 
 // Fungsi YouTube API
