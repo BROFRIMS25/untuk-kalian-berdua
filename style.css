@@ -1,0 +1,108 @@
+
+body {
+  font-family: 'Segoe Script', cursive;
+  background: linear-gradient(to bottom right, #ffd1ec, #ff8ef7, #ff66cc);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.translate-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff0f5;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 0 10px rgba(255,0,100,0.3);
+  z-index: 10;
+}
+
+.envelope-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  background: #fbb1d3;
+  color: #555;
+  padding: 15px 25px;
+  border: 2px solid #fff;
+  margin-bottom: 20px;
+}
+
+.start-btn {
+  font-size: 18px;
+  background-color: #ffaad4;
+  border: 2px solid red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.start-btn:active {
+  transform: scale(0.95);
+}
+
+.envelope {
+  width: 120px;
+  height: 80px;
+  background: pink;
+  position: relative;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.envelope::after {
+  content: "❤️";
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  font-size: 30px;
+}
+
+.slider {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.slide {
+  display: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+.next {
+  background: #ffaad4;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.next:active {
+  transform: scale(0.95);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
