@@ -9,6 +9,16 @@ function nextSlide(n) {
   document.getElementById("slide" + n).classList.add("active");
 }
 
+const bgMusic = document.getElementById("bgMusic");
+
+function toggleMusic() {
+  if (bgMusic.paused) {
+    bgMusic.play();
+  } else {
+    bgMusic.pause();
+  }
+}
+
 const translations = {
   id: {
     title1: "selamat untuk kalian\nberdua",
