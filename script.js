@@ -16,6 +16,20 @@ function startSlides() {
     console.log("Player belum siap, akan diputar saat siap.");
   }
 }
+function startSlides() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("slider").style.display = "flex";
+  slides = document.querySelectorAll(".slide");
+
+  toggleLanguage(); // PENTING: sembunyikan slide yang tidak sesuai bahasa
+
+  showSlide(current);
+
+  // Putar lagu jika player sudah siap
+  if (typeof player !== 'undefined' && player.playVideo) {
+    player.playVideo();
+  }
+}
 
 function showSlide(index) {
   slides.forEach(slide => slide.classList.remove("active"));
