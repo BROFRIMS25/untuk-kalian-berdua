@@ -34,3 +34,34 @@ function toggleLanguage() {
   });
   showSlide(current = 0);
 }
+let player;
+
+function startSlides() {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("slider").style.display = "flex";
+  slides = document.querySelectorAll(".slide");
+  showSlide(current);
+
+  // Putar lagu
+  if (player) {
+    player.playVideo();
+  }
+}
+// Fungsi YouTube API
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('ytplayer', {
+    height: '0',
+    width: '0',
+    videoId: 'EUYulFdP-qE', https://youtu.be/EUYulFdP-qE?si=VkRlaYru1nNFFRoI
+    playerVars: {
+      autoplay: 0,
+      loop: 1,
+      playlist: 'EUYulFdP-qE'
+    },
+    events: {
+      'onReady': (event) => {
+        // Tidak langsung play, hanya siap
+      }
+    }
+  });
+}
