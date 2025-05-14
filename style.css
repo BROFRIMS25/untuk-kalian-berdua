@@ -1,0 +1,105 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Brush Script MT', cursive;
+  background: linear-gradient(to bottom right, #ffc0cb, #ff69b4, #fff0f5);
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+
+.slide.active {
+  display: block;
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.judul {
+  font-size: 28px;
+  color: #fff;
+}
+
+.instruksi {
+  background: #ff69b4;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.envelope {
+  position: relative;
+  width: 160px;
+  height: 100px;
+  background: pink;
+  border-radius: 0 0 15px 15px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 60px solid white;
+  z-index: 2;
+}
+
+.body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart {
+  font-size: 24px;
+  color: red;
+  z-index: 3;
+}
+
+#translate-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+}
+
+.music-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
