@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,54 +6,63 @@
   <title>Selamat dari Salsa</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-  <video autoplay muted loop playsinline id="bgVideo">
-  <source src="bg-video.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-  </video>
-  
 <body>
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <div id="ytplayer" style="display:none;"></div>
+  <!-- ✅ Video Background -->
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="bg-video.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- ✅ YouTube Player Tersembunyi -->
+  <div id="ytplayer" style="display: none;"></div>
+
+  <!-- ✅ Tombol Ganti Bahasa -->
   <div class="translate-button" onclick="toggleLanguage()">🌐</div>
-  <div class="music">
-    <iframe style="display:none;" src="https://www.youtube.com/embed/EUYulFdP-qE?autoplay=1&loop=1&playlist=EUYulFdP-qE" allow="autoplay"></iframe>
-  </div>
+
+  <!-- ✅ Layar Pembuka -->
   <div class="envelope-screen" id="startScreen">
     <div class="title">congratulations to both of you</div>
     <button class="start-btn" onclick="startSlides()">❤️click here❤️</button>
     <div class="envelope"></div>
   </div>
+
+  <!-- ✅ Slider Ucapan -->
   <div class="slider" id="slider">
-    <div class="slide active" data-id="id">
+    <div class="slide" data-id="id">
       <p>Dari Salsa untuk kakakku:<br><br>
-      selamat ya kak, kakak akhirnya jadian buat pertama kalinyaa,semoga hubungan kalian selalu dipenuhi kebahagiaan, saling ngerti, dan langgeng sampai halal,,,Ingat, jadi pacar itu bukan cuma tentang senang-senang, tapi juga belajar jadi lebih dewasa bareng,semangat ngejalaninnya kak... jangan sering-sering debat kayak di sinetron yaaa, dan ingat…<br><strong>JANGAN LUPA TRAKTIR ADEKNYA😘😘</strong></p>
+      selamat ya kak, kakak akhirnya jadian buat pertama kalinyaa, semoga hubungan kalian selalu dipenuhi kebahagiaan, saling ngerti, dan langgeng sampai halal,,,Ingat, jadi pacar itu bukan cuma tentang senang-senang, tapi juga belajar jadi lebih dewasa bareng, semangat ngejalaninnya kak... jangan sering-sering debat kayak di sinetron yaaa, dan ingat…<br><strong>JANGAN LUPA TRAKTIR ADEKNYA😘😘</strong></p>
     </div>
+
     <div class="slide" data-id="tr">
       <p>Ablasına Salsa'dan:<br><br>
       Tebrikler abla! Sonunda ilk kez bir ilişkiye başladın. Umarım ilişkiniz her zaman mutlulukla, anlayışla dolu olur ve sonsuza kadar sürer, hatta evliliğe kadar gider… Unutma, sevgili olmak sadece eğlenmekle ilgili değil, birlikte olgunlaşmayı da öğrenmektir. Bu yolda başarılar ablacım… Dizilerdeki gibi sürekli tartışmayın olur muuu, ve unutma… <br><strong>KÜÇÜK KARDEŞİNİ YEMEĞE ÇIKARMAYI UNUTMAAA!</strong></p>
     </div>
+
     <div class="slide" data-id="id">
       <p>Dari Salsa untuk kekasih kakakku:<br><br>
       Selamat ya atas hubungan barunya dengan Kakakku. Semoga ini menjadi awal dari perjalanan yang menyenangkan dan bermakna. Semoga kalian bisa saling memahami, saling mendukung, dan tumbuh bersama dalam hubungan yang sehat dan bahagia. Aku ikut senang melihat kalian bersama, dan semoga ke depannya semua berjalan lancar dan penuh kebahagiaan.</p>
     </div>
+
     <div class="slide" data-id="tr">
       <p>Salsa’dan Ablamın Sevgilisine:<br><br>
       Ablamla yeni ilişkiniz için tebrik ederim. Umarım bu, keyifli ve anlamlı bir yolculuğun başlangıcı olur. Birbirinizi anlamayı, desteklemeyi ve sağlıklı, mutlu bir ilişkide birlikte büyümeyi başarabilirsiniz. Sizi birlikte görmek beni mutlu ediyor ve umarım her şey yolunda gider ve mutlulukla devam eder.</p>
     </div>
+
     <div class="slide" data-id="all">
-  <p>
-    For both of you,<br><br>
-    Congratulations! May your relationship always be tightly bound and never loosen. And also always be healthy for both of you and always be happy.<br><br>
-    <strong>Greetings, Sijen 💖</strong>
-  </p>
-</div>
-<div class="slide" data-id="all">
-  <p>Salam dari Salsa dan Sijen 💖</p>
-</div>
-<button class="next" onclick="nextSlide()">Lanjut ➤</button>
+      <p>For both of you,<br><br>
+      Congratulations! May your relationship always be tightly bound and never loosen. And also always be healthy for both of you and always be happy.<br><br>
+      <strong>Greetings, Sijen 💖</strong></p>
+    </div>
+
+    <div class="slide" data-id="all">
+      <p>Salam dari Salsa dan Sijen 💖</p>
+    </div>
+
+    <button class="next" onclick="nextSlide()">Lanjut ➤</button>
   </div>
+
+  <!-- ✅ JavaScript -->
   <script src="script.js"></script>
-  <div id="ytplayer" style="display: none;"></div>
-</body>
   <script src="https://www.youtube.com/iframe_api"></script>
+</body>
 </html>
