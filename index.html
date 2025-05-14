@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Kalian Berdua</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="language-switch">
+    <select id="languageSelect">
+      <option value="id">Indonesia</option>
+      <option value="tr">Türkçe</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <div class="slide active" id="slide1">
+      <div class="card">
+        <div class="title" id="title1">selamat untuk kalian<br>berdua</div>
+        <button class="heart-button" onclick="nextSlide(2)">
+          ❤️ klik tombol hati di bawah ❤️
+        </button>
+        <div class="envelope">
+          <div class="flap"></div>
+          <div class="letter"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" id="slide2">
+      <div class="message" id="msg1">
+        Dari Salsa untuk kakakku:<br>
+        selamat ya kak, kakak akhirnya jadian buat pertama kalinyaa, semoga hubungan kalian selalu dipenuhi kebahagiaan, saling ngerti, dan langgeng sampai halal...<br><br>
+        Ingat, jadi pacar itu bukan cuma tentang senang-senang, tapi juga belajar jadi lebih dewasa bareng. Semangat ngejalaninnya kak... jangan sering-sering debat kayak di sinetron yaaa, dan ingat… JANGAN LUPA TRAKTIR ADEKNYA 😘😘
+      </div>
+      <button class="next-button" onclick="nextSlide(3)">💌 Lanjut</button>
+    </div>
+
+    <div class="slide" id="slide3">
+      <div class="message" id="msg2">
+        Salsa'dan ablamın sevgilisine:<br>
+        Ablamla olan yeni ilişkiniz için tebrikler. Umarım bu, eğlenceli ve anlamlı bir yolculuğun başlangıcı olur.<br><br>
+        Birbirinizi anlayarak, destekleyerek ve sağlıklı, mutlu bir ilişki içinde birlikte büyüyerek yol alırsınız. Sizi birlikte görmek beni mutlu ediyor. Umarım her şey yolunda ve mutlu bir şekilde devam eder.
+      </div>
+      <button class="next-button" onclick="nextSlide(4)">💌 Lanjut</button>
+    </div>
+
+    <div class="slide" id="slide4">
+      <div class="message" id="msg3">
+        Salam dari Salsa dan Sijen 💖<br><br>
+        Semoga kalian bahagia selalu dan perjalanan kalian penuh warna seperti pelangi 🎉🌈
+      </div>
+      <button class="next-button" onclick="nextSlide(1)">🔁 Kembali ke Awal</button>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop autoplay>
+    <source src="assets/surat-cinta-instrument.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="clickSound">
+    <source src="assets/click.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
