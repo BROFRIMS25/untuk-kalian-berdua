@@ -4,20 +4,25 @@ const clickSound = document.getElementById("clickSound");
 const music = document.getElementById("bgMusic");
 
 function nextSlide(n) {
-  clickSound.play();
-  slides.forEach(slide => slide.classList.remove("active"));
-  document.getElementById("slide" + n).classList.add("active");
-}
+ const ytIframe = document.getElementById('yt-audio');
+const musicToggle = document.getElementById('musicToggle');
+let isPlaying = true;
 
-const bgMusic = document.getElementById("bgMusic");
-
-function toggleMusic() {
-  if (bgMusic.paused) {
-    bgMusic.play();
+musicToggle.addEventListener('click', () => {
+  const src = ytIframe.src;
+  if (isPlaying) {
+    // pause by removing autoplay and reloading
+    ytIframe.src = '';
+    musicToggle.innerText = '⏯️ Putar Musik';
   } else {
-    bgMusic.pause();
+    // resume by reinstating src
+    ytIframe.src = src || 
+      'https://youtu.be/EUYulFdP-qE?si=6OueP0wWOb-07-bD?autoplay=1&loop=1&playlist=VIDEO_ID&controls=0&iv_load_policy=3&modestbranding=1&rel=0';
+    musicToggle.innerText = '❤️ Hentikan Musik';
   }
-}
+  isPlaying = !isPlaying;
+});
+ 
 
 const translations = {
   id: {
