@@ -109,25 +109,25 @@ body {
   height: 75px;
   background: #ffccf9;
 }
-
-#musicToggle {
+.romantic-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #ff66b2;
+  padding: 10px 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  background: #ff66cc;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 30px;
-  font-family: 'Dancing Script', cursive;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  z-index: 999;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  z-index: 1000;
+  transition: background 0.3s;
+}
+.romantic-btn:hover {
+  background: #ff3399;
 }
 
-#musicToggle:hover {
-  background-color: #ff3385;
 }
 
