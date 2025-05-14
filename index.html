@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat dari Salsa</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="translate-button" onclick="toggleLanguage()">🌐 Terjemahkan</div>
+    <div id="music-player">
+        <iframe width="0" height="0" src="https://www.youtube.com/embed/EUYulFdP-qE?autoplay=1&loop=1&playlist=EUYulFdP-qE" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+    </div>
+
+    <div class="slider">
+        <div class="slide active" id="slide-1">
+            <p class="message" data-id="id">
+                Selamat ya kak, kakak akhirnya jadian buat pertama kalinya, semoga hubungan kalian selalu dipenuhi kebahagiaan...
+            </p>
+            <p class="message hidden" data-id="tr">
+                Tebrikler abla! Sonunda ilk kez bir ilişkiye başladın. Umarım ilişkiniz her zaman mutlulukla dolu olur...
+            </p>
+            <button onclick="nextSlide()">❤️ Lanjut ❤️</button>
+        </div>
+
+        <div class="slide" id="slide-2">
+            <p class="message" data-id="id">
+                Dari Salsa untuk kekasih kakakku: Selamat ya atas hubungan barunya dengan Kakakku...
+            </p>
+            <p class="message hidden" data-id="tr">
+                Salsa’dan Ablamın Sevgilisine: Ablamla yeni ilişkiniz için tebrik ederim...
+            </p>
+            <button onclick="nextSlide()">❤️ Lanjut ❤️</button>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <p class="message">Salam dari Salsa dan Sijen 💖</p>
+            <button onclick="restartSlides()">🔄 Ulangi</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
