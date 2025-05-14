@@ -9,16 +9,19 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
-    body {
+ html, body {
       margin: 0;
+      padding: 0;
       background: linear-gradient(135deg, #fff0fc, #ff4de9);
+      height: 100%;
+      overflow-x: hidden;
+ }   
+    body {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
-      overflow: hidden;
     }
-    .container {
+   .container {
       background-color: rgba(255, 255, 255, 0.3);
       border-radius: 12px;
       padding: 2rem;
@@ -26,9 +29,9 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       max-width: 400px;
       width: 100%;
-      transition: all 0.5s ease;
+      margin: 2rem auto;
     }
-  .title, .subtitle {
+   .title, .subtitle {
       background-color: #ff99ff;
       border: 1px solid red;
       padding: 1rem;
@@ -36,9 +39,9 @@
       color: white;
       font-style: italic;
       font-size: 1.2rem;
-  }  
-    .subtitle {
-     cursor: pointer;
+    }
+  .subtitle {
+      cursor: pointer;
       font-weight: bold;
       font-size: 0.9rem;
     }
@@ -51,8 +54,8 @@
       background-color: #ff99ff;
       clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
       transition: transform 0.6s ease;
-    }
-  .envelope::after {
+  }  
+    .envelope::after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -63,7 +66,7 @@
       background-color: red;
       clip-path: path('M15 30 Q30 10 15 0 Q0 10 15 30 Z');
     }
-   .message {
+    .message {
       display: none;
       margin-top: 1rem;
       background: #fff0fc;
@@ -71,16 +74,17 @@
       border-radius: 10px;
       font-size: 0.9rem;
       text-align: left;
-   } 
+    }
     .show .message {
       display: block;
     }
     .language-switch {
-      position: absolute;
+      position: fixed;
       top: 10px;
       right: 10px;
+      z-index: 10;
     }
-   .language-switch select {
+    .language-switch select {
       padding: 5px;
       border-radius: 5px;
     }
@@ -104,7 +108,7 @@
       Selamat ya atas hubungan barunya dengan Kakakku. Semoga ini menjadi awal dari perjalanan yang menyenangkan dan bermakna. Semoga kalian bisa saling memahami, saling mendukung, dan tumbuh bersama dalam hubungan yang sehat dan bahagia. Aku ikut senang melihat kalian bersama, dan semoga ke depannya semua berjalan lancar dan penuh kebahagiaan.</p>
     </div>
   </div>
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" autoplay loop>
     <source src="surat-cinta-untuk-starla.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung audio.
   </audio>
@@ -115,7 +119,9 @@
 
     function openEnvelope() {
       container.classList.add('show');
-      audio.play();
+      audio.play().catch(() => {
+        // Autoplay mungkin dicegah oleh browser, abaikan
+      });
     }
 
     const translations = {
@@ -143,4 +149,3 @@
   </script>
 </body>
 </html>
-
