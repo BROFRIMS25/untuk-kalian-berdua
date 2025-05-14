@@ -74,12 +74,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px 20px;
+  height: 100vh; /* Tambahkan ini untuk vertikal tengah */
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .slide {
   display: none;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
   animation: fadeIn 1s ease-in-out;
 }
 
