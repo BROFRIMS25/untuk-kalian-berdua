@@ -1,39 +1,34 @@
-
 let current = 0;
 let slides = [];
 let currentLang = "id";
+let player;
 
 function startSlides() {
   document.getElementById("startScreen").style.display = "none";
   document.getElementById("slider").style.display = "flex";
-  slides = document.querySelectorAll(".slide");
+
+  toggleLanguage(); // sembunyikan slide sesuai bahasa
+  slides = Array.from(document.querySelectorAll(".slide")).filter(slide => {
+    const lang = slide.getAttribute("data-id");
+    return lang === currentLang || lang === "all";
+  });
+
+  current = 0;
   showSlide(current);
 
-  // Putar lagu jika player sudah siap
+  // Putar lagu jika player siap
   if (typeof player !== 'undefined' && player.playVideo) {
     player.playVideo();
   } else {
     console.log("Player belum siap, akan diputar saat siap.");
   }
 }
-function startSlides() {
-  document.getElementById("startScreen").style.display = "none";
-  document.getElementById("slider").style.display = "flex";
-  slides = document.querySelectorAll(".slide");
-
-  toggleLanguage(); // PENTING: sembunyikan slide yang tidak sesuai bahasa
-
-  showSlide(current);
-
-  // Putar lagu jika player sudah siap
-  if (typeof player !== 'undefined' && player.playVideo) {
-    player.playVideo();
-  }
-}
 
 function showSlide(index) {
   slides.forEach(slide => slide.classList.remove("active"));
-  slides[index].classList.add("active");
+  if (slides[index]) {
+    slides[index].classList.add("active");
+  }
 }
 
 function nextSlide() {
@@ -45,7 +40,8 @@ function nextSlide() {
 
 function toggleLanguage() {
   currentLang = currentLang === "id" ? "tr" : "id";
-  slides.forEach(slide => {
+
+  document.querySelectorAll(".slide").forEach(slide => {
     const lang = slide.getAttribute("data-id");
     if (lang === currentLang || lang === "all") {
       slide.style.display = "block";
@@ -53,32 +49,27 @@ function toggleLanguage() {
       slide.style.display = "none";
     }
   });
-  showSlide(current = 0);
-}
 
-function nextSlide() {
-  current++;
-  console.log("Maju ke slide:", current);
-  if (current >= slides.length) current = slides.length - 1;
+  // perbarui list slide yang aktif setelah toggle
+  slides = Array.from(document.querySelectorAll(".slide")).filter(slide => {
+    const lang = slide.getAttribute("data-id");
+    return lang === currentLang || lang === "all";
+  });
+
+  current = 0;
   showSlide(current);
-  new Audio("click.mp3").play();
 }
 
-// Fungsi YouTube API
+// YouTube API
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('ytplayer', {
     height: '0',
     width: '0',
-    videoId: 'EUYulFdP-qE', https://youtu.be/EUYulFdP-qE?si=VkRlaYru1nNFFRoI
+    videoId: 'EUYulFdP-qE',
     playerVars: {
       autoplay: 0,
       loop: 1,
       playlist: 'EUYulFdP-qE'
-    },
-    events: {
-      'onReady': (event) => {
-        // Tidak langsung play, hanya siap
-      }
     }
   });
 }
