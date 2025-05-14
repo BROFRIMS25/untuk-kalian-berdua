@@ -90,6 +90,12 @@ body {
 
 .slide.active {
   display: block;
+  background-image: url('1000370956.jpg'); /* ganti sesuai nama file */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 40px 20px;
+  color: black;
 }
 
 .next {
