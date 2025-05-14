@@ -108,6 +108,12 @@ body {
   border-radius: 15px;
 }
 
+.slide.active p,
+.slide.active button {
+  position: relative;
+  z-index: 1;
+}
+
 .next {
   background: #ffaad4;
   color: white;
