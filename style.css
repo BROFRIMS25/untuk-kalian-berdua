@@ -124,6 +124,18 @@ body {
   margin-top: 20px;
   cursor: pointer;
 }
+@keyframes floatHearts {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+}
+
+.heart {
+  position: absolute;
+  animation: floatHearts 4s infinite;
+  font-size: 24px;
+  color: #ff4d88;
+  z-index: 2;
+}
 
 .next:active {
   transform: scale(0.95);
