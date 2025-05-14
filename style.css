@@ -1,10 +1,10 @@
 
 body {
   font-family: 'Segoe Script', cursive;
-  background: linear-gradient(to bottom right, #ffd1ec, #ff8ef7, #ff66cc);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background: none; /* hilangkan background pink */
 }
 
 .translate-button {
