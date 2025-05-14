@@ -1,176 +1,146 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ucapan Selamat dari Kami Berdua</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surat Cinta</title>
   <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
     body {
       margin: 0;
-      font-family: 'Crimson Pro', serif;
-      background: linear-gradient(to bottom right, #f8bbd0, #e1bee7);
+      background: linear-gradient(135deg, #fff0fc, #ff4de9);
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      overflow: auto;
-      padding: 20px;
+      overflow: hidden;
     }
-    .envelope {
-      width: 90%;
-      max-width: 600px;
-      background: #fff;
+    .container {
+      background-color: rgba(255, 255, 255, 0.3);
       border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-      overflow: hidden;
-      animation: openEnvelope 2s ease forwards;
-    }
-    .header-img {
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 400px;
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      transition: all 0.5s ease;
     }
-    .letter {
-      opacity: 0;
-      transform: translateY(100%);
-      transition: all 1s ease 2s;
-      padding: 30px 20px;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-    .envelope.open .letter {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 36px;
-      color: #880e4f;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 20px;
-      color: #6a1b9a;
-      margin-top: 25px;
-    }
-    p {
-      margin: 10px 0;
-    }
-    .language-buttons {
-      text-align: center;
-      margin: 15px 0;
-    }
-    .language-buttons button {
-      background-color: #ce93d8;
-      border: none;
+  .title, .subtitle {
+      background-color: #ff99ff;
+      border: 1px solid red;
+      padding: 1rem;
+      margin-bottom: 1rem;
       color: white;
-      padding: 10px 20px;
-      margin: 0 10px;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .language-buttons button:hover {
-      background-color: #ab47bc;
-    }
-    .signature {
-      margin-top: 30px;
       font-style: italic;
-      text-align: right;
+      font-size: 1.2rem;
+  }  
+    .subtitle {
+     cursor: pointer;
+      font-weight: bold;
+      font-size: 0.9rem;
     }
-    @keyframes openEnvelope {
-      from {
-        transform: scaleY(0.1);
-        opacity: 0;
-      }
-      to {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-    }
-    .read-more {
-      text-align: center;
-      margin-top: 15px;
-    }
-    .read-more button {
-      padding: 10px 20px;
-      background-color: #f48fb1;
-      border: none;
-      color: white;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .read-more button:hover {
-      background-color: #ec407a;
-    }
-    .letter.collapsed {
-      max-height: 250px;
-      overflow: hidden;
+  .envelope {
       position: relative;
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      margin: 0 auto;
+      background-color: #ff99ff;
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+      transition: transform 0.6s ease;
+    }
+  .envelope::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      clip-path: path('M15 30 Q30 10 15 0 Q0 10 15 30 Z');
+    }
+   .message {
+      display: none;
+      margin-top: 1rem;
+      background: #fff0fc;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      text-align: left;
+   } 
+    .show .message {
+      display: block;
+    }
+    .language-switch {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+   .language-switch select {
+      padding: 5px;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-
-<div class="envelope open" id="envelope">
-  <img src="https://i.ibb.co/xGZCGFy/romantic-letter.jpg" class="header-img" alt="romantic image" />
-
-  <div class="language-buttons">
-    <button onclick="switchLanguage('id')">Bahasa Indonesia</button>
-    <button onclick="switchLanguage('tr')">Türkçe</button>
+  <div class="language-switch">
+    <select id="languageSelect">
+      <option value="id">Indonesia</option>
+      <option value="tr">Türkçe</option>
+    </select>
   </div>
-  <!-- Bahasa Indonesia -->
-  <div class="letter collapsed" id="message-id">
-    <h1>Ucapan Selamat dari Kami Berdua</h1>
-    <h2>Untuk Kakakku Tersayang,</h2>
-    <p>Selamat ya kak... akhirnya kamu merasakan cinta pertama yang indah.</p>
-    <p>Semoga cinta kalian tumbuh dalam ketulusan, kejujuran, dan kesabaran. Jadilah pasangan yang saling menguatkan dan belajar bersama menjadi dewasa.</p>
-    <p>Jangan biarkan hal kecil menjadi besar. Ingatlah bahwa cinta bukan hanya tentang tawa, tapi juga tentang mendengarkan dan memaafkan.</p>
-    <p><strong>Dan... jangan lupa traktir adeknya juga ya!</strong></p>
-    <h2>Untuk Kekasih Kakakku,</h2>
-    <p>Selamat datang dalam hidup Kakakku. Semoga kamu menjadi bagian terindah dari kisahnya.</p>
-    <p>Rawat hatinya dengan baik, dan biarlah cinta ini menjadi langkah awal menuju masa depan yang penuh makna.</p>
-    <p>Melihat kalian bersama membuatku ikut tersenyum. Semoga segalanya berjalan dengan indah dan penuh kebahagiaan.</p>
-    <div class="signature">
-      Salam hangat,<br>Salsa & Sijen
+  <div class="container" id="letterContainer">
+    <div class="title" id="titleText">selamat untuk kalian berdua</div>
+    <div class="subtitle" onclick="openEnvelope()">klik tombol hati di bawah</div>
+    <div class="envelope" onclick="openEnvelope()"></div>
+    <div class="message" id="messageText">
+      <p><strong>Dari Salsa untuk kakakku:</strong><br>
+      selamat ya kak, kakak akhirnya jadian buat pertama kalinyaa, semoga hubungan kalian selalu dipenuhi kebahagiaan, saling ngerti, dan langgeng sampai halal,,, Ingat, jadi pacar itu bukan cuma tentang senang-senang, tapi juga belajar jadi lebih dewasa bareng. Semangat ngejalaninnya kak... jangan sering-sering debat kayak di sinetron yaaa, dan ingat… JANGAN LUPA TRAKTIR ADEKNYA!</p>
+      <p><strong>Dari Salsa untuk kekasih kakakku:</strong><br>
+      Selamat ya atas hubungan barunya dengan Kakakku. Semoga ini menjadi awal dari perjalanan yang menyenangkan dan bermakna. Semoga kalian bisa saling memahami, saling mendukung, dan tumbuh bersama dalam hubungan yang sehat dan bahagia. Aku ikut senang melihat kalian bersama, dan semoga ke depannya semua berjalan lancar dan penuh kebahagiaan.</p>
     </div>
   </div>
+  <audio id="bgMusic" loop>
+    <source src="surat-cinta-untuk-starla.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
 
-  <!-- Tombol untuk baca selengkapnya -->
-  <div class="read-more">
-    <button onclick="expandLetter()">Klik untuk lanjut baca</button>
-  </div>
+  <script>
+    const container = document.getElementById('letterContainer');
+    const audio = document.getElementById('bgMusic');
 
-</div>
+    function openEnvelope() {
+      container.classList.add('show');
+      audio.play();
+    }
 
-<audio autoplay loop style="display:none">
-  <source src="https://example.com/surat-cinta-untuk-starla-instrumental.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
+    const translations = {
+      id: {
+        title: "selamat untuk kalian berdua",
+        subtitle: "klik tombol hati di bawah",
+        message: document.getElementById('messageText').innerHTML
+      },
+      tr: {
+        title: "ikinize tebrikler",
+        subtitle: "aşağıdaki kalp düğmesine tıklayın",
+        message: `<p><strong>Salsa'dan ablama:</strong><br>
+        Tebrikler abla, sonunda ilk kez sevgili oldun. Umarım ilişkiniz mutlulukla dolar, birbirinizi anlarsınız ve nikaha kadar sürer. Unutma, sevgili olmak sadece eğlenmek değil, birlikte olgunlaşmayı da öğrenmek demektir. Bu yolculukta başarılar... Dizi gibi tartışmalar olmasın lütfen, ve UNUTMA... KARDEŞİNE YEMEK ISMARLAMAYI UNUTMA!</p>
+        <p><strong>Salsa'dan ablamın sevgilisine:</strong><br>
+        Ablamla olan yeni ilişkiniz için tebrikler. Umarım bu yolculuk eğlenceli ve anlamlı olur. Birbirinizi anlar, destek olur ve sağlıklı bir ilişkide birlikte büyürsünüz. Sizi birlikte görmek beni mutlu ediyor. Umarım her şey yolunda ve mutlu geçer.</p>`
+      }
+    };
 
-<script>
-  function switchLanguage(lang) {
-    const idMessage = document.getElementById("message-id");
-    const trMessage = document.getElementById("message-tr");
-
-    idMessage.style.display = lang === "id" ? "block" : "none";
-    trMessage.style.display = lang === "tr" ? "block" : "none";
-  }
-
-  function expandLetter() {
-    document.getElementById("message-id").classList.remove("collapsed");
-    document.querySelector(".read-more").style.display = "none";
-  }
-
-  window.onload = function () {
-    switchLanguage('id');
-  };
-</script>
-
+    document.getElementById('languageSelect').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      document.getElementById('titleText').innerText = translations[lang].title;
+      document.querySelector('.subtitle').innerText = translations[lang].subtitle;
+      document.getElementById('messageText').innerHTML = translations[lang].message;
+    });
+  </script>
 </body>
 </html>
+
