@@ -7,7 +7,10 @@ function startSlides() {
   document.getElementById("startScreen").style.display = "none";
   document.getElementById("slider").style.display = "flex";
 
-  toggleLanguage(); // sembunyikan slide sesuai bahasa
+  // Filter & tampilkan slide sesuai bahasa
+  toggleLanguage();
+
+  // Ambil ulang slide aktif
   slides = Array.from(document.querySelectorAll(".slide")).filter(slide => {
     const lang = slide.getAttribute("data-id");
     return lang === currentLang || lang === "all";
@@ -16,19 +19,21 @@ function startSlides() {
   current = 0;
   showSlide(current);
 
-  // Putar lagu jika player siap
   if (typeof player !== 'undefined' && player.playVideo) {
     player.playVideo();
-  } else {
-    console.log("Player belum siap, akan diputar saat siap.");
   }
 }
 
 function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  if (slides[index]) {
-    slides[index].classList.add("active");
-  }
+  slides.forEach((slide, i) => {
+    if (i === index) {
+      slide.style.display = "block";
+      slide.classList.add("active");
+    } else {
+      slide.style.display = "none";
+      slide.classList.remove("active");
+    }
+  });
 }
 
 function nextSlide() {
@@ -44,13 +49,13 @@ function toggleLanguage() {
   document.querySelectorAll(".slide").forEach(slide => {
     const lang = slide.getAttribute("data-id");
     if (lang === currentLang || lang === "all") {
-      slide.style.display = "block";
+      slide.style.display = "none"; // kita reset semua dulu
     } else {
       slide.style.display = "none";
     }
   });
 
-  // perbarui list slide yang aktif setelah toggle
+  // Ambil ulang slide yang sesuai bahasa
   slides = Array.from(document.querySelectorAll(".slide")).filter(slide => {
     const lang = slide.getAttribute("data-id");
     return lang === currentLang || lang === "all";
@@ -60,7 +65,7 @@ function toggleLanguage() {
   showSlide(current);
 }
 
-// YouTube API
+// YouTube Player
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('ytplayer', {
     height: '0',
