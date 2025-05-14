@@ -8,6 +8,13 @@ function startSlides() {
   document.getElementById("slider").style.display = "flex";
   slides = document.querySelectorAll(".slide");
   showSlide(current);
+
+  // Putar lagu jika player sudah siap
+  if (typeof player !== 'undefined' && player.playVideo) {
+    player.playVideo();
+  } else {
+    console.log("Player belum siap, akan diputar saat siap.");
+  }
 }
 
 function showSlide(index) {
@@ -36,17 +43,21 @@ function toggleLanguage() {
 }
 let player;
 
-function startSlides() {
-  document.getElementById("startScreen").style.display = "none";
-  document.getElementById("slider").style.display = "flex";
-  slides = document.querySelectorAll(".slide");
-  showSlide(current);
+// Fungsi untuk membuat player tersembunyi
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('ytplayer', {
+    height: '0',
+    width: '0',
+    videoId: 'EUYulFdP-qE',
+    playerVars: {
+      autoplay: 0,
+      loop: 1,
+      playlist: 'EUYulFdP-qE'
+    }
+  });
 
-  // Putar lagu
-  if (player) {
-    player.playVideo();
-  }
 }
+
 // Fungsi YouTube API
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('ytplayer', {
